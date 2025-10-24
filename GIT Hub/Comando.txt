@@ -96,3 +96,34 @@ Autenticação com GitHub
 Ao fazer o push, o Git pode pedir autenticação.
 
 Use um token de acesso pessoal (PAT) em vez da senha. Você pode gerar um token em github.com/settings/tokens.
+
+
+
+
+Puxe as alterações do GitHub para o seu repositório local:
+
+
+git pull origin main
+Isso vai tentar mesclar as mudanças do GitHub com as suas.
+
+Resolva conflitos (se houver):
+
+Se aparecerem conflitos, o VSCode vai mostrar os arquivos com conflitos.
+
+Escolha entre manter sua versão, a versão remota ou mesclar manualmente.
+
+Depois de resolver, salve os arquivos e faça:
+
+
+git add .
+git commit -m "Resolvendo conflitos"
+Agora você pode fazer o push:
+
+
+git push origin main
+
+🧠 Dica extra: se quiser sobrescrever o remoto (⚠️ com cuidado)
+Se você tem certeza de que quer sobrescrever o que está no GitHub com sua versão local, use:
+
+
+git push --force origin main
