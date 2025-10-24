@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+	<head>
+		<script language="JavaScript" type="text/javascript" src="funcs.js"></script>
+		<meta charset="UTF-8">
+		<!--meta name="description" content="Gruposc [ ]">
+		<meta name="keywords" content="Gruposc, consultas">
+		<meta name="author" content="Suporte PXE">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"!-->
+		<title>Sistema GrupoSC</title>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<link rel="stylesheet" href="style2.css" type="text/css">
+		<link rel="icon" href="img/icon.png" type="imagem/png">
+		<!--link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Digital-7&display=swap"!-->
+<style>
+    body {
+      background-color: #0391d3;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+	  height: 32%;
+      max-width: 50%;
+      margin: 0 auto;
+      padding: 0;
+      background-color: #596a72;
+      border-radius: 2%;
+      box-shadow: 0 0 5% rgba(0,0,0,0.1);
+    }
+
+    .titulo-centralizado {
+      text-align: center;
+      font-weight: bold;
+      font-size: 500%;
+      color: #000000;
+      margin-bottom: 30%;
+	}
+</style>
+	</head>
+	<body>
+
+		<div>
+			<marquee behavior="scroll" direction="left" style="font-weight: bold;color: #fff;font-size: 150%;">
+					Bem-vindo à sua central de informações. Explore os tópicos e aprenda mais!
+			</marquee>
+		</div>
+		
+		<section class="conteudo">
+			<section class="logon">
+					<span style="width: 100%; display: flex; align-items: center;">
+						<span style="margin-left: auto; align-self: center;">
+							<div style="position: relative; display: inline-block;">
+								<span src="https://itsm.stcruz.com.br/se/v12199/ui/desktop/lite/resources/images/flagIcons/16x16/pt-br.png" tabindex="1" id="languageDropdown" target="_blank" size="1" class="Link_rctAtomLink_VcpXH undefined" style="cursor: pointer; color: rgb(67, 138, 203); line-height: 1;">
+									<div style="vertical-align: baseline; padding: 0px; display: inline-block; margin-right: 4px; align-self: center;"><img src="https://itsm.stcruz.com.br/se/v12199/ui/desktop/lite/resources/images/flagIcons/16x16/pt-br.png" alt="Imagem" style="width: 14px; height: 14px; user-select: none;">
+									</div>Português (Português do Brasil)
+									<i icon="seicon-down-micro" class="Icon_rctIcon_hnUXi seicon-down-micro" style="font-size: 16px; vertical-align: baseline; padding: 0px; display: inline-block; margin-left: 4px; line-height: 1;">	
+									</i>
+								</span>
+							</div>
+						</span>
+					</span>
+			
+				<div>
+					<div>
+						<div class="logo_login"><img src="C:\Users\moises.costa\Desktop\Sistema\logo.png"></div>
+						<form class="loginForm" method="post"  name="form" onSubmit="return valida()">
+							<div class="infos">
+								<input style="text-transform: lowercase;" type="text" required pattern="[a-z.]*" name="usu" autocomplete="on" placeholder="Usuário" size="50" maxlength="40">
+							</div>
+							<div class="infos">
+								<input type="password" name="senha" placeholder="senha" required="" autocomplete="off" size="50" maxlength="40">
+							</div>
+							<div style="width: 100%;">
+								<button class="bt-login" type="submit">Entrar</button>
+							</div>
+							
+							<div class="msg_alerta"> OBRIGATORIO USUARIO E SENHA ! </div>
+						</form>
+						
+					</div>
+				</div>
+				
+			</section>
+
+			<script>
+				function updateTime() {
+					var now = new Date();
+					var hours = now.getHours().toString().padStart(2, '0');
+					var minutes = now.getMinutes().toString().padStart(2, '0');
+					var seconds = now.getSeconds().toString().padStart(2, '0');
+					var timeString = hours + ':' + minutes + ':' + seconds;
+					document.getElementById('clock').textContent = timeString;
+				}
+				setInterval(updateTime, 1000);
+				updateTime();
+
+				function alternarSenha() {
+				const campoSenha = document.getElementById("senha");
+				campoSenha.type = campoSenha.type === "password" ? "text" : "password";
+				}
+
+
+			function recuperarSenha(email) {
+				sendPasswordResetEmail(auth, email)
+				.then(() => alert("Email de recuperação enviado!"))
+				.catch((error) => alert("Erro: " + error.message));
+				}
+
+			</script>    
+
+			<footer style="background:rgba(0, 0, 0, 0); height:120px; margin-bottom: 40px;">
+				<div style="width:25%; padding: 0 40px;"></div>
+				<div id="clock"></div>
+			</footer>
+
+			<div class="imagem" style="display: flex;justify-content: space-around;flex-direction: column;align-content: space-around;">
+			<div class="container">
+				<h1 class="titulo-centralizado">BASE DE CONHECIMENTO</h1>
+				<!-- Aqui você pode adicionar mais conteúdo -->
+				<!--p style="text-align: center;">Bem-vindo à sua central de informações. Explore os tópicos e aprenda mais!</p!-->
+  			</div>
+			</div>
+		</section>
+	
+	</body>
+</html>

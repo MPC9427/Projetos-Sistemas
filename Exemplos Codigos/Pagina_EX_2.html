@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tela de Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+    }
+    .login-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+    .data-atual {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #555;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:disabled {
+      background-color: #aaa;
+    }
+    .mostrar-senha {
+      font-size: 12px;
+      margin-top: -8px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <div class="data-atual" id="dataAtual"></div>
+
+    <h2>Login</h2>
+    <input type="text" id="usuario" placeholder="Usuário"><br>
+    <input type="password" id="senha" placeholder="Senha"><br>
+    <div class="mostrar-senha">
+      <input type="checkbox" onclick="alternarSenha()"> Mostrar senha
+    </div>
+    <button id="botaoLogin" onclick="fazerLogin()">Entrar</button>
+  </div>
+
+  <script>
+    // Exibe a data atual
+    function mostrarDataAtual() {
+      const hoje = new Date();
+      const opcoes = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const dataFormatada = hoje.toLocaleDateString('pt-BR', opcoes);
+      document.getElementById("dataAtual").textContent = `Hoje é ${dataFormatada}`;
+    }
+
+    // Alterna a visibilidade da senha
+    function alternarSenha() {
+      const campoSenha = document.getElementById("senha");
+      campoSenha.type = campoSenha.type === "password" ? "text" : "password";
+    }
+
+    // Valida os campos e simula login
+    function fazerLogin() {
+      const usuario = document.getElementById("usuario").value;
+      const senha = document.getElementById("senha").value;
+      const botao = document.getElementById("botaoLogin");
+
+      if (usuario === "" || senha === "") {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
+
+      botao.disabled = true;
+      botao.textContent = "Entrando...";
+
+      // Simula carregamento
+      setTimeout(() => {
+        alert("Login realizado com sucesso!");
+        botao.disabled = false;
+        botao.textContent = "Entrar";
+      }, 2000);
+    }
+
+    // Executa ao carregar a página
+    mostrarDataAtual();
+  </script>
+
+</body>
+</html>

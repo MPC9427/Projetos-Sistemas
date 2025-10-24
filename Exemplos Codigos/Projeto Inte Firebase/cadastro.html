@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro</title>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="firebase.js"></script>
+</head>
+<body>
+  <h2>Cadastro de Usuário</h2>
+  <input type="text" id="nome" placeholder="Nome completo"><br>
+  <input type="email" id="email" placeholder="E-mail"><br>
+  <input type="password" id="senha" placeholder="Senha"><br>
+  <button onclick="cadastrar()">Cadastrar</button>
+  <p id="mensagem"></p>
+
+  <script>
+    function cadastrar() {
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+      const msg = document.getElementById("mensagem");
+
+      if (!nome || !email || senha.length < 6) {
+        msg.textContent = "Preencha todos os campos corretamente.";
+        return;
+      }
+
+      auth.createUserWithEmailAndPassword(email, senha)
+        .then((userCredential) => {
+          const uid = userCredential.user.uid;
+          return db.collection("usuarios").doc(uid).set({ nome, email });
+        })
+        .then(() => {
+          msg.textContent = "Cadastro realizado com sucesso!";
+        })
+        .catch((error) => {
+          msg.textContent = "Erro: " + error.message;
+        });
+    }
+  </script>
+</body>
+</html>

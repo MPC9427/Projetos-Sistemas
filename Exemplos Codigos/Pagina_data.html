@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tela de Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .data-atual {
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <footer>
+    <div>
+    <marquee behavior="scroll" direction="left" style="font-weight: bold;color: #000000;font-size: 150%;">
+					Bem-vindo à sua central de informações. Explore os tópicos e aprenda mais!
+	</marquee>
+    </div>
+</footer>
+
+<div class="data-atual" id="dataAtual"></div>
+
+  <h2>Login</h2>
+  <form>
+    <input type="text" placeholder="Usuário"><br><br>
+    <input type="password" placeholder="Senha"><br><br>
+    <button type="submit">Entrar</button>
+  </form>
+
+  <script>
+    function exibirDataAtual() {
+      const hoje = new Date();
+      const opcoes = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const dataFormatada = hoje.toLocaleDateString('pt-BR', opcoes);
+      document.getElementById('dataAtual').textContent = `Hoje é ${dataFormatada}`;
+    }
+
+    exibirDataAtual();
+  </script>
+</body>

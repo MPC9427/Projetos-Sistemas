@@ -1,0 +1,4 @@
+[2025-10-08 17:56:28.027710] 🔍 Verificando atualizações disponíveis...
+
+[2025-10-08 17:56:38.578022] ✅ Verificação concluída. Veja a saída acima.
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Como configurar o Produto 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; max-width: 800px; }
+    h1 { color: #2c3e50; }
+    .feedback, .idioma, .contador { margin-top: 30px; }
+    button { margin-right: 10px; padding: 8px 12px; }
+    .idioma button { background: #ecf0f1; border: 1px solid #ccc; cursor: pointer; }
+    .feedback button { background: #3498db; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <div class="idioma">
+    <strong>🌐 Idioma:</strong>
+    <button onclick="mudarIdioma('pt')">Português</button>
+    <button onclick="mudarIdioma('en')">English</button>
+    <button onclick="window.print()">📥 Exportar como PDF</button>
+  </div>
+
+  <h1 id="titulo">Como configurar o Produto 1</h1>
+  <p id="conteudo">
+    Para configurar o Produto 1, conecte-o à energia, acesse o painel via navegador e siga as instruções.
+  </p>
+
+  <div class="contador">
+    👁️ Visualizações: <span id="views">0</span>
+  </div>
+
+  <div class="feedback">
+    <p>✅ Este artigo foi útil?</p>
+    <button onclick="registrarFeedback(true)">Sim</button>
+    <button onclick="registrarFeedback(false)">Não</button>
+    <p id="respostaFeedback"></p>
+  </div>
+
+  <div style="margin-top: 40px;">
+    <a href="index.html">← Voltar para a base de conhecimento</a>
+  </div>
+
+  <script>
+    // Contador de visualizações (simulado com localStorage)
+    const views = localStorage.getItem('views') || 0;
+    const novaContagem = parseInt(views) + 1;
+    localStorage.setItem('views', novaContagem);
+    document.getElementById('views').innerText = novaContagem;
+
+    // Feedback
+    function registrarFeedback(util) {
+      const resposta = util ? "Obrigado pelo seu feedback! 😊" : "Vamos melhorar este conteúdo. Obrigado!";
+      document.getElementById('respostaFeedback').innerText = resposta;
+    }
+
+    // Alternância de idioma
+    function mudarIdioma(idioma) {
+      if (idioma === 'pt') {
+        document.getElementById('titulo').innerText = "Como configurar o Produto 1";
+        document.getElementById('conteudo').innerText = "Para configurar o Produto 1, conecte-o à energia, acesse o painel via navegador e siga as instruções.";
+      } else {
+        document.getElementById('titulo').innerText = "How to set up Product 1";
+        document.getElementById('conteudo').innerText = "To set up Product 1, plug it in, access the control panel via browser, and follow the instructions.";
+      }
+    }
+  </script>
+  
+    // Exportar como PDF
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  function exportarPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.text("Como configurar o Produto 1", 10, 10);
+    doc.text("Para configurar o Produto 1, conecte-o à energia, acesse o painel via navegador e siga as instruções.", 10, 20);
+    doc.save("artigo-produto1.pdf");
+  }
+</script>
+
+</body>
+</html>

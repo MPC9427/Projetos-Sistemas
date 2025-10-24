@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Central de Ajuda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; max-width: 900px; }
+    h1 { color: #2c3e50; }
+    article { background: #fff; padding: 20px; margin-bottom: 30px; border-radius: 8px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    h2 { color: #2980b9; margin-top: 0; }
+    button { margin-top: 10px; padding: 8px 12px; background: #3498db; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h1>Central de Ajuda</h1>
+
+  <article id="artigo1">
+    <h2>Como configurar o Produto 1</h2>
+    <p>Para configurar o Produto 1, conecte-o à energia, acesse o painel via navegador e siga as instruções.</p>
+    <button onclick="exportarPDF('artigo1', 'produto1.pdf')">📥 Exportar como PDF</button>
+  </article>
+
+  <article id="artigo2">
+    <h2>Erro 404: Como resolver</h2>
+    <p>Esse erro geralmente indica que a página não foi encontrada. Verifique a URL ou entre em contato com o suporte.</p>
+    <button onclick="exportarPDF('artigo2', 'erro404.pdf')">📥 Exportar como PDF</button>
+  </article>
+
+  <article id="artigo3">
+    <h2>Como gerar boleto</h2>
+    <p>Você pode gerar um boleto acessando sua conta, clicando em "Pagamentos" e selecionando "Gerar boleto".</p>
+    <button onclick="exportarPDF('artigo3', 'boleto.pdf')">📥 Exportar como PDF</button>
+  </article>
+
+  <script>
+    async function exportarPDF(idArtigo, nomeArquivo) {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const artigo = document.getElementById(idArtigo);
+      const titulo = artigo.querySelector('h2').innerText;
+      const conteudo = artigo.querySelector('p').innerText;
+
+      doc.setFont("Helvetica", "bold");
+      doc.setFontSize(16);
+      doc.text(titulo, 10, 20);
+
+      doc.setFont("Helvetica", "normal");
+      doc.setFontSize(12);
+      doc.text(conteudo, 10, 30, { maxWidth: 180 });
+
+      doc.setFontSize(10);
+      doc.text("Gerado em " + new Date().toLocaleDateString(), 10, 140);
+
+      doc.save(nomeArquivo);
+    }
+  </script>
+
+</body>
+</html

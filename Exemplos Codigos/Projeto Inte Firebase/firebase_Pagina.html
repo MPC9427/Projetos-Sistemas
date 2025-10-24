@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login com Firebase</title>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .login-box {
+      display: inline-block;
+      padding: 30px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 80%;
+    }
+    button {
+      padding: 10px 20px;
+    }
+    .data-atual {
+      margin-bottom: 20px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <div class="data-atual" id="dataAtual"></div>
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="E-mail">
+    <input type="password" id="senha" placeholder="Senha">
+    <button onclick="fazerLogin()">Entrar</button>
+    <p id="mensagem"></p>
+  </div>
+
+  <script>
+    // 🔧 Configuração do Firebase (substitua pelos seus dados)
+    const firebaseConfig = {
+      apiKey: "SUA_API_KEY",
+      authDomain: "SEU_PROJETO.firebaseapp.com",
+      projectId: "SEU_PROJETO",
+      storageBucket: "SEU_PROJETO.appspot.com",
+      messagingSenderId: "SEU_ID",
+      appId: "SEU_APP_ID"
+    };
+
+    // Inicializa o Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // 📅 Exibe a data atual
+    document.getElementById("dataAtual").textContent =
+      "Hoje é " + new Date().toLocaleDateString("pt-BR", {
+        weekday: "long", year: "numeric", month: "long", day: "numeric"
+      });
+
+    // 🔐 Função de login
+    function fazerLogin() {
+      const email = document.getElementById("email").value;
+      const senha = document.getElementById("senha").value;
+      const msg = document.getElementById("mensagem");
+
+      auth.signInWithEmailAndPassword(email, senha)
+        .then((userCredential) => {
+          msg.style.color = "green";
+          msg.textContent = "Login realizado com sucesso!";
+          // Redirecionar ou carregar conteúdo protegido aqui
+        })
+        .catch((error) => {
+          msg.style.color = "red";
+          msg.textContent = "Erro: " + error.message;
+        });
+    }
+  </script>
+
+</body>
+</html>

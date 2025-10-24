@@ -1,0 +1,38 @@
+
+  <div class="filtros">
+    <strong>🗂️ Filtrar por categoria:</strong>
+    <button onclick="filtrar('todos')">Todos</button>
+    <button onclick="filtrar('produtos')">Produtos</button>
+    <button onclick="filtrar('suporte')">Suporte Técnico</button>
+    <button onclick="filtrar('pagamentos')">Pagamentos</button>
+  </div>
+
+  <article data-categoria="produtos">
+    <h2>Como configurar o Produto 1</h2>
+    <p>Para configurar o Produto 1, conecte-o à energia, acesse o painel via navegador e siga as instruções.</p>
+  </article>
+
+  <article data-categoria="suporte">
+    <h2>Erro 404: Como resolver</h2>
+    <p>Esse erro geralmente indica que a página não foi encontrada. Verifique a URL ou entre em contato com o suporte.</p>
+  </article>
+
+  <article data-categoria="pagamentos">
+    <h2>Como gerar boleto</h2>
+    <p>Você pode gerar um boleto acessando sua conta, clicando em "Pagamentos" e selecionando "Gerar boleto".</p>
+  </article>
+
+  <article data-categoria="suporte">
+    <h2>Problemas de conexão</h2>
+    <p>Verifique se o cabo está conectado corretamente e reinicie o roteador. Se persistir, contate o suporte.</p>
+  </article>
+
+  <script>
+    function filtrar(categoria) {
+      const artigos = document.querySelectorAll('article');
+      artigos.forEach(artigo => {
+        const cat = artigo.getAttribute('data-categoria');
+        artigo.style.display = (categoria === 'todos' || cat === categoria) ? 'block' : 'none';
+      });
+    }
+  

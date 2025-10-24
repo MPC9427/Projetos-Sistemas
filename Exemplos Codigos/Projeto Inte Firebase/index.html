@@ -1,0 +1,15 @@
+<!-- Similar ao exemplo anterior, mas redireciona para area.html -->
+<script>
+  function fazerLogin() {
+    const email = document.getElementById("email").value;
+    const senha = document.getElementById("senha").value;
+
+    auth.signInWithEmailAndPassword(email, senha)
+      .then(() => {
+        window.location.href = "area.html";
+      })
+      .catch((error) => {
+        document.getElementById("mensagem").textContent = "Erro: " + error.message;
+      });
+  }
+</script>

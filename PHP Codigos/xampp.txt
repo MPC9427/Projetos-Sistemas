@@ -1,0 +1,67 @@
+1. Instale e configure o XAMPP
+- Baixe o XAMPP: https://www.apachefriends.org/pt_br/index.html
+- Instale e abra o Painel de Controle
+- Inicie os serviços:
+- ✅ Apache
+- ✅ MySQL
+
+📁 2. Crie a pasta do projeto
+- Vá até o diretório:
+C:\xampp\htdocs
+- Crie uma pasta chamada:
+sistema-ti
+- Coloque todos os arquivos do seu sistema dentro dessa pasta:
+- index.php, dashboard.php, upload.php, etc.
+- Crie também a pasta uploads para armazenar os documentos
+
+🗃️ 3. Crie o banco de dados
+- Acesse: http://localhost/phpmyadmin
+- Clique em "Novo" e crie um banco chamado sistema_ti
+- Execute os comandos SQL para criar as tabelas:
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100),
+  email VARCHAR(100) UNIQUE,
+  senha VARCHAR(255)
+);
+
+CREATE TABLE documentos_ti (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome_arquivo VARCHAR(255),
+  caminho VARCHAR(255),
+  data_upload DATETIME,
+  tecnico VARCHAR(100)
+);
+
+
+
+🔗 4. Configure a conexão com o banco
+No arquivo includes/conexao.php, use:
+
+<?php
+$conn = new mysqli("localhost", "root", "", "sistema_ti");
+if ($conn->connect_error) {
+  die("Erro na conexão: " . $conn->connect_error);
+}
+?>
+
+
+
+🚀 5. Acesse o sistema no navegador
+- Digite na barra de endereço:
+http://localhost/sistema-ti
+- A tela de login deve aparecer
+- Após login, você poderá:
+- Enviar documentos
+- Listar e baixar arquivos
+- Filtrar e exportar relatórios
+
+🛠️ Dicas úteis
+- Para criar usuários, use um script com password_hash() para salvar senhas seguras
+- Certifique-se de que a pasta uploads tem permissão de escrita
+- Use Bootstrap para deixar o visual mais moderno
+
+
+crie um sistema em html com Login e senha e que possa armazenar  documentos de TI
+
+
