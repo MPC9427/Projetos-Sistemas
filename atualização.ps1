@@ -1,5 +1,5 @@
 # Navega até o diretório do repositório (ajuste conforme necessário)
-Set-Location "C:\Users\moises.costa\Desktop\RepositorioProjetos Sistemas"
+Set-Location "C:\Users\moises.costa\Desktop\Projetos Sistemas"
 
 # Adiciona todos os arquivos modificados
 git add .
