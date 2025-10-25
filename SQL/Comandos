@@ -1,0 +1,56 @@
+1. Stored Procedures (Procedimentos Armazenados)
+Permitem agrupar comandos SQL em uma rotina reutilizável.
+
+
+DELIMITER //
+CREATE PROCEDURE listar_clientes()
+BEGIN
+  SELECT * FROM clientes;
+END //
+DELIMITER ;
+Execute via aba "Rotinas" no phpMyAdmin.
+
+🧮 2. Functions (Funções Personalizadas)
+Retornam valores e podem ser usadas em SELECTs.
+
+
+DELIMITER //
+CREATE FUNCTION calcular_desconto(valor DECIMAL(10,2))
+RETURNS DECIMAL(10,2)
+BEGIN
+  RETURN valor * 0.9;
+END //
+DELIMITER ;
+Criadas na mesma aba de rotinas.
+
+👁️‍🗨️ 3. Views (Visões)
+Simplificam consultas complexas e aumentam a segurança.
+
+
+CREATE VIEW clientes_ativos AS
+SELECT nome, email FROM clientes WHERE status = 'ativo';
+Acesse a aba "Views" para criar ou editar.
+
+🔔 4. Triggers (Gatilhos)
+Executam ações automáticas em eventos como INSERT, UPDATE ou DELETE.
+
+
+CREATE TRIGGER atualiza_data_modificacao
+BEFORE UPDATE ON pedidos
+FOR EACH ROW
+SET NEW.data_modificacao = NOW();
+Criadas na aba "Triggers".
+
+🧰 5. Scripts úteis para manutenção
+
+Limpar registros antigos:
+
+DELETE FROM logs WHERE data < NOW() - INTERVAL 30 DAY;
+Verificar tabelas corrompidas:
+
+CHECK TABLE nome_tabela;
+Otimizar tabelas:
+
+
+
+OPTIMIZE TABLE nome_tabela;

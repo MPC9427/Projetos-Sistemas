@@ -1,0 +1,1 @@
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'usuario'@'host';
