@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo de Integração com API</title>
+</head>
+<body>
+  <h1>Dados da API:</h1>
+  <div id="resultado">Carregando...</div>
+
+  <script>
+    // Exemplo com uma API pública de piadas
+    fetch('https://api.chucknorris.io/jokes/random')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('resultado').innerText = data.value;
+      })
+      .catch(error => {
+        console.error('Erro ao buscar dados da API:', error);
+        document.getElementById('resultado').innerText = 'Erro ao carregar dados.';
+      });
+  </script>
+</body>
+</html>
