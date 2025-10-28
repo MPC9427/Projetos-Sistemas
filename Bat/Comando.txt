@@ -1,0 +1,47 @@
+🗂️ 1. Script para copiar arquivos
+
+@echo off
+xcopy "C:\Origem\*" "D:\Destino\" /s /i /y
+echo Arquivos copiados com sucesso!
+pause
+
+/s: copia subpastas
+
+/i: assume que o destino é uma pasta
+
+/y: suprime confirmação de sobrescrita
+
+🖥️ 2. Script para abrir programas
+
+@echo off
+start notepad.exe
+start chrome.exe https://www.microsoft.com
+pause
+
+🔁 3. Script com loop e condição
+
+@echo off
+set /a count=1
+:loop
+echo Contador: %count%
+set /a count+=1
+if %count% LEQ 5 goto loop
+echo Fim do loop!
+pause
+
+🧹 4. Script para limpar arquivos temporários
+
+@echo off
+echo Limpando arquivos temporários...
+del /q /f "%temp%\*.*"
+echo Limpeza concluída!
+pause
+
+
+🔒 5. Script para bloquear acesso à internet (via DNS)
+
+@echo off
+echo Bloqueando DNS...
+netsh interface ip set dns "Ethernet" static 127.0.0.1
+echo DNS alterado para localhost.
+pause
