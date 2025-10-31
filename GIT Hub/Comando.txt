@@ -139,8 +139,6 @@ git checkout -b nome-do-branch
 
 git add .
 git commit -m "Descrição das alterações"
-
-
 git push origin nome-do-branch
 
 
