@@ -176,6 +176,7 @@ gh pr close ID-do-PR
 
 Se quiser, posso te mostrar um exemplo prático com um repositório fictício ou te ajudar a configurar o GitHub CLI. Quer seguir por esse caminho?
 
+Ola mundo !
 
 
 
