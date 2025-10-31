@@ -127,3 +127,18 @@ Se você tem certeza de que quer sobrescrever o que está no GitHub com sua vers
 
 
 git push --force origin main
+
+
+
+
+Etapas e comandos para criar um Pull Request
+
+
+
+git checkout -b nome-do-branch
+
+git add .
+git commit -m "Descrição das alterações"
+
+
+git push origin nome-do-branch
