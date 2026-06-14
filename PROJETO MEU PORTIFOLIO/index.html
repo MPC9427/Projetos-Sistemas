@@ -178,7 +178,7 @@
 
   /* ── PROJETOS ── */
   #projetos { background: var(--bg-surface); }
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1.5rem; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; }
   .project-card {
     background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
     overflow: hidden; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
@@ -349,6 +349,17 @@
     .nav-links { display: none; }
     .contato-card { padding: 2rem 1.5rem; }
   }
+
+  @media (max-width: 480px) {
+    section { padding: 4rem 6%; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card.featured .project-thumb,
+    .project-card:not(.featured) .project-thumb { height: 200px; }
+    .project-thumb.mobile-thumb { height: 320px; }
+    .project-body { padding: 1.25rem; }
+    .project-body h3 { font-size: 1.1rem; }
+    .gallery-thumb { height: 240px !important; }
+  }
 </style>
 </head>
 <body>
@@ -422,7 +433,7 @@
         <div class="project-body">
           <span class="project-tag">&#128138; Aplicativo Web</span>
           <h3>PharmaFlow Pro &mdash; Gest&atilde;o Inteligente de Farm&aacute;cia</h3>
-          <p>Plataforma completa de gest&atilde;o farmac&ecirc;utica que centraliza estoque, vendas, compras, financeiro e conformidade regulat&oacute;ria em um &uacute;nico painel. Com alertas autom&aacute;ticos de vigil&acirc;ncia sanit&aacute;ria para lotes pr&oacute;ximos do vencimento, integra&ccedil;&atilde;o com loja virtual e e-commerce, e dashboards anal&iacute;ticos de margem de lucro, custo e volume de vendas por categoria, o sistema entrega vis&atilde;o estrat&eacute;gica em tempo real para tomada de decis&atilde;o.</p>
+          <p>Plataforma completa de gest&atilde;o farmac&ecirc;utica que unifica estoque, vendas, compras e financeiro em um &uacute;nico painel. Conta com alertas autom&aacute;ticos de vigil&acirc;ncia sanit&aacute;ria, loja virtual integrada e dashboards anal&iacute;ticos para decis&otilde;es estrat&eacute;gicas em tempo real.</p>
           <div class="project-features">
             <span class="feat-chip">&#128137; Controle de estoque</span>
             <span class="feat-chip">&#128722; Loja virtual integrada</span>
@@ -440,7 +451,7 @@
         <div class="project-body">
           <span class="project-tag">&#9889; Infraestrutura</span>
           <h3>InfraPulse AI</h3>
-          <p>O motor da sua infraestrutura aut&ocirc;noma. Monitoramento inteligente e gest&atilde;o automatizada de ambientes de TI com intelig&ecirc;ncia artificial.</p>
+          <p>Monitoramento inteligente de infraestrutura com intelig&ecirc;ncia artificial, detectando falhas e automatizando a gest&atilde;o de ambientes de TI antes que afetem sua opera&ccedil;&atilde;o.</p>
           <div class="project-features">
             <span class="feat-chip">&#129302; IA integrada</span>
             <span class="feat-chip">&#128269; Monitoramento</span>
